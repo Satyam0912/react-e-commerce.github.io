@@ -12,11 +12,11 @@ export const ProductContextProvider = ({ children }) => {
     const [productId, setProductId] = useState("");
     const [categories, setCategories] = useState([]);
     const [category, setCategory] = useState("");
-    const [cartItems, setCartItems] = useState([]);
-    const [favouriteItems, setFavouriteItems] = useState([]);
+    const [cartItems, setCartItems] = useState(new Map());
     const [cartAmount, setCartAmount] = useState(0);
-    const [favItems, setFavItems] = useState([]);
-    // console.log(children);
+    const [favItems, setFavItems] = useState(new Map());
+    const [favItemsCnt, setfavItemsCnt] = useState(0);
+
 
     useEffect(() => {
         setLoading(true);
@@ -69,12 +69,12 @@ export const ProductContextProvider = ({ children }) => {
         setCategory,
         cartItems,
         setCartItems,
-        favouriteItems,
-        setFavouriteItems,
         cartAmount,
         setCartAmount,
         favItems,
-        setFavItems
+        setFavItems,
+        favItemsCnt,
+        setfavItemsCnt
     };
     return (<ProductContext.Provider value={values}>{children}</ProductContext.Provider>);
 }

@@ -1,0 +1,17 @@
+.fav-btn {
+    cursor: pointer;
+}
+
+.card-image {
+    max-height: 10rem;
+    width: auto;
+}
+
+.icon {
+    height: 24px;
+    width: 24px;
+}
+
+.btn-addToCart {
+    width: inherit;
+}

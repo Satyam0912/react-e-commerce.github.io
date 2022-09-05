@@ -1,7 +1,7 @@
-
-import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Navbar from './Components/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Route, Routes } from 'react-router-dom';
+import Navbar from './Components/NavbarComponent';
 import ProductDetail from './Pages/ProductDetail';
 import Products from './Pages/Products';
 import Cart from './Pages/Cart';
@@ -18,7 +18,6 @@ function App() {
         <Route path='/:category_id' element={<Products />}></Route>
         <Route path='/product/:product_id' element={<ProductDetail />}></Route>
       </Routes>
-
     </div>
   );
 }

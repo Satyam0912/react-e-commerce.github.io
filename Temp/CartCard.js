@@ -1,46 +1,42 @@
 import React from 'react'
-import styles from './styles.module.css';
-import { HeartIcon, ShoppingCartIcon, StarIcon } from '@heroicons/react/solid';
+import { ShoppingCartIcon, StarIcon } from '@heroicons/react/solid';
 import { Link } from 'react-router-dom';
 
-const Card = ({ item, addToCart, addToFav }) => {
+const CartCard = ({ item, removeFromCart }) => {
     // console.log("sdsdsd", item);
 
     return (
-        <div className={styles.card}>
-            <div className={styles.cardLink}>
-                <button className={styles.favButton} onClick={(e) => { addToFav(e) }}>
-                    <HeartIcon />
-                </button>
+        <div className=''>
+            <div className=''>
 
-                <div className={styles.cardHeader}>
+                <div className=''>
                     <Link to={`product/${item.id}`}>
-                        <img className={styles.cardImg} src={item.image} alt="" />
+                        <img className='' src={item.image} alt="" />
                     </Link>
                 </div>
 
-                <div className={styles.cardBody}>
+                <div className=''>
                     <>
-                        <p className={styles.cardTitle}>
-                            <span className={styles.brand} >
+                        <p className=''>
+                            <span className='' >
                                 Brand,
                             </span>
                             {item.title}
                         </p>
                     </>
-                    <div className={styles.rating}>
+                    <div className=''>
                         {[...Array(Math.round(item.rating.rate))].map((e, i) =>
 
                             <StarIcon
                                 key={`star-${i}`}
-                                className={styles.starIcon}
+                                className=''
                                 aria-hidden='true' />
                         )}
                         {[...Array(5 - Math.round(item.rating.rate))].map((e, i) =>
 
                             <StarIcon
                                 key={`star-${i}`}
-                                className={styles.emptyStarIcon}
+                                className=''
                                 aria-hidden='true' />
                         )}
                         <p className='text-xs ml-1 font-light mt-0.5'>{item.rating.count}</p>
@@ -52,10 +48,10 @@ const Card = ({ item, addToCart, addToFav }) => {
                         </div>
                     </div>
 
-                    <div className={styles.addToCart}>
-                        <button className={styles.addToCartButton}>
-                            <ShoppingCartIcon className={styles.shoppingCartIcon}></ShoppingCartIcon>
-                            <span className={styles.buttonText} onClick={(e) => addToCart(e)}>Add to cart!</span>
+                    <div className=''>
+                        <button className=''>
+                            <ShoppingCartIcon className=''></ShoppingCartIcon>
+                            <span className='' onClick={(e) => removeFromCart(e)}>Remove from Cart</span>
                         </button>
                     </div>
                 </div>
@@ -64,4 +60,4 @@ const Card = ({ item, addToCart, addToFav }) => {
     )
 }
 
-export default Card
+export default CartCard

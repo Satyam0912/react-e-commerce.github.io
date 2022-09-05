@@ -13,8 +13,6 @@ root.render(
       <BrowserRouter>
         <App />
       </BrowserRouter>
-
     </ProductContextProvider>
-
   </React.StrictMode>
 );
