@@ -50,7 +50,7 @@ const CardComponent = ({ item }) => {
     return (
         <Card className='p-2 m-2' style={{ width: '16rem' }}>
             <Card.Link className='ms-auto fav-btn' onClick={() => { toggleFavItems(item) }}>
-                <HeartIcon className='icon text-danger' />
+                <HeartIcon className={favItems.has(item.id) ? 'icon text-danger' : 'icon text-secondary'} />
             </Card.Link>
 
             <Card.Body className='text-center d-flex flex-column justify-content-between p-0'>
@@ -84,9 +84,9 @@ const CardComponent = ({ item }) => {
                     </p>
                     <Row>
                         <Col>
-                            <Card.Link className='btn btn-addToCart bg-primary m-auto' onClick={() => toggleCartItems(item)}>
+                            <Card.Link className={cartItems.has(item.id) ? 'btn btn-addToCart bg-danger m-auto' : 'btn btn-addToCart bg-primary m-auto'} onClick={() => toggleCartItems(item)}>
                                 <ShoppingCartIcon className='icon'></ShoppingCartIcon>
-                                <span>Add to cart!</span>
+                                <span>{cartItems.has(item.id) ? 'Remove from Cart!' : 'Add to cart!'}</span>
                             </Card.Link>
                         </Col>
                     </Row>
